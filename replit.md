@@ -19,11 +19,11 @@ Preferred communication style: Simple, everyday language.
 - **Forms**: React Hook Form with Zod validation for type-safe form handling
 
 ### Backend Architecture
-- **Server**: Express.js with TypeScript, serving both API endpoints and static assets
-- **Development Setup**: Custom Vite middleware integration for hot module replacement
+- **Development**: Express.js with TypeScript for local development
+- **Production**: Vercel serverless functions (`/api` directory) for deployment
 - **Storage Layer**: Abstracted storage interface with in-memory implementation for development
 - **API Design**: RESTful endpoints for research papers, projects, and GitHub repositories
-- **Request Logging**: Custom middleware for API request/response logging and performance monitoring
+- **Deployment**: Restructured for Vercel with individual serverless functions per endpoint
 
 ### Data Storage
 - **Database**: PostgreSQL configured through Drizzle ORM
@@ -53,7 +53,7 @@ Preferred communication style: Simple, everyday language.
 ### Development Tools
 - **Vite**: Build tool with custom plugin integration for Replit environment
 - **TypeScript**: Type safety across frontend and backend
-- **ESBuild**: Fast JavaScript bundler for production builds
+- **Vercel**: Serverless deployment platform with Node.js runtime
 - **PostCSS**: CSS processing with Tailwind CSS integration
 
 ### Data Management
@@ -70,3 +70,4 @@ Preferred communication style: Simple, everyday language.
 - **Replit Integration**: Custom Vite plugins for Replit development environment
 - **Runtime Error Overlay**: Development error handling with modal display
 - **Cartographer**: Replit-specific development tooling integration
+- **Vercel Deployment**: Configured for serverless deployment with automatic builds

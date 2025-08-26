@@ -45,13 +45,15 @@ A comprehensive implementation exploring both neural and statistical approaches 
 - **Wouter** for lightweight client-side routing
 
 ### Backend
-- **Express.js** with TypeScript
+- **Development**: Express.js with TypeScript for local development
+- **Production**: Vercel serverless functions for deployment
 - **PostgreSQL** with Drizzle ORM
 - **Neon Database** for serverless PostgreSQL
 - **RESTful API** design with proper validation
 
 ### Development & Deployment
 - **TypeScript** for end-to-end type safety
+- **Vercel** for serverless deployment and hosting
 - **Zod** for schema validation
 - **React Hook Form** for form handling
 - **Lucide React** for consistent iconography
@@ -59,18 +61,27 @@ A comprehensive implementation exploring both neural and statistical approaches 
 ## 🏗️ Project Structure
 
 ```
+├── api/                          # Vercel serverless functions
+│   ├── research-papers.ts        # GET /api/research-papers
+│   ├── research-papers/[id].ts   # GET /api/research-papers/:id  
+│   ├── research-projects.ts      # GET /api/research-projects
+│   ├── research-projects/[id].ts # GET /api/research-projects/:id
+│   ├── github-repos.ts           # GET /api/github-repos
+│   ├── github-repos/featured.ts  # GET /api/github-repos/featured
+│   └── contact.ts                # POST /api/contact
 ├── client/
 │   ├── src/
 │   │   ├── components/     # Reusable UI components
 │   │   ├── hooks/          # Custom React hooks
 │   │   ├── lib/            # Utilities and configurations
 │   │   └── pages/          # Page components
+│   └── package.json        # Frontend dependencies for Vercel build
 ├── server/
-│   ├── index.ts            # Express server entry point
-│   ├── routes.ts           # API route definitions
-│   └── storage.ts          # Data storage interface
+│   └── storage.ts          # Data storage interface (shared)
 ├── shared/
 │   └── schema.ts           # Shared TypeScript types and schemas
+├── vercel.json             # Vercel deployment configuration
+├── DEPLOYMENT.md           # Detailed deployment guide
 └── README.md
 ```
 
@@ -108,6 +119,25 @@ A comprehensive implementation exploring both neural and statistical approaches 
 
 5. **Open your browser**
    Navigate to `http://localhost:5000` to view the application.
+
+## 🚀 Deployment to Vercel
+
+This project is configured for easy deployment to Vercel:
+
+### Quick Deploy
+1. **Install Vercel CLI**: `npm i -g vercel`
+2. **Login**: `vercel login`
+3. **Deploy**: `vercel` (follow the prompts)
+4. **Production**: `vercel --prod`
+
+### What's Configured
+- ✅ Vercel serverless functions in `/api` directory
+- ✅ Automatic frontend build from `/client` directory  
+- ✅ CORS handling for all API endpoints
+- ✅ TypeScript support with `@vercel/node`
+- ✅ SPA routing with proper fallbacks
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
 
 ## 📈 Research Areas
 
